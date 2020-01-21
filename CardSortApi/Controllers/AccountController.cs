@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using CardSortApi.Domain.Models;
 
 namespace CardSortApi.Controllers
 {
@@ -139,6 +140,28 @@ namespace CardSortApi.Controllers
 			try
 			{
 				var response = await _accountService.VerifyEmail(request.Username, request.Token);
+				if (response.Succeeded)
+				{
+					return Ok(response.ResponseBody);
+				}
+
+				return BadRequest(response.ErrorMessage);
+			}
+			catch (Exception e)
+			{
+				return InternalServerError(e);
+			}
+		}
+
+		[HttpPost]
+		[Authorize]
+		[ActionName("update")]
+		[ResponseType(typeof(AuthResponse))]
+		public async Task<IHttpActionResult> UpdateAccount([FromBody] UpdateRequest request)
+		{
+			try
+			{
+				var response = await _accountService.UpdateAccount(CurrentIdentity.UserId, request.Name, request.Email);
 				if (response.Succeeded)
 				{
 					return Ok(response.ResponseBody);

@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,9 +75,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Card.cs" />
+    <Compile Include="Data\CardsContext.cs" />
+    <Compile Include="Data\Deck.cs" />
+    <Compile Include="Data\DecksContext.cs" />
     <Compile Include="Dto\AccountRequest.cs" />
     <Compile Include="Dto\AuthRequest.cs" />
+    <Compile Include="Dto\CardsRequest.cs" />
     <Compile Include="Dto\ResendRequest.cs" />
+    <Compile Include="Dto\UpdateRequest.cs" />
     <Compile Include="Dto\VerificationRequest.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
     <Compile Include="Identity\CardSortIdentity.cs" />
@@ -78,6 +92,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

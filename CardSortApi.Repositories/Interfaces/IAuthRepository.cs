@@ -11,5 +11,6 @@ namespace CardSortApi.Repositories.Interfaces
 		Task<RequestResponse<bool>> IsUsernameValid(string username);
 		Task CreateAccount(User user);
 		Task<User> SetVerificationStatus(int userId, bool verificationStatus);
+		Task<User> UpdateAccount(string userId, string name, string email);
 	}
 }

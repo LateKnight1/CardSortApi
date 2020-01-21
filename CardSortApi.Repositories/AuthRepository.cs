@@ -83,5 +83,24 @@ namespace CardSortApi.Repositories
 				return user;
 			}
 		}
+
+		public async Task<User> UpdateAccount(string userId, string name, string email)
+		{
+			using (var context = new UserEntities())
+			{
+				int.TryParse(userId, out var id);
+				var user = await context.Users.FirstOrDefaultAsync(x => x.UserId == id);
+				if (user == null)
+				{
+					throw new NotFoundException("User not fount");
+				}
+
+				user.Email = email;
+				user.Name = name;
+
+				await context.SaveChangesAsync();
+				return user;
+			}
+		}
 	}
 }

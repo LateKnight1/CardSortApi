@@ -100,12 +100,14 @@
     <Compile Include="AccountService.cs" />
     <Compile Include="AuthService.cs" />
     <Compile Include="CurrentHttpContext.cs" />
+    <Compile Include="DeckService.cs" />
     <Compile Include="EmailService.cs" />
     <Compile Include="HttpContextWrapperFactory.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
     <Compile Include="Interfaces\IApplicationConfiguration.cs" />
     <Compile Include="Interfaces\IAuthService.cs" />
     <Compile Include="Interfaces\ICurrentHttpContext.cs" />
+    <Compile Include="Interfaces\IDeckService.cs" />
     <Compile Include="Interfaces\IEmailService.cs" />
     <Compile Include="Interfaces\IHttpContextWrapperFactory.cs" />
     <Compile Include="MessageHandlers\JwtAuthHandler.cs" />

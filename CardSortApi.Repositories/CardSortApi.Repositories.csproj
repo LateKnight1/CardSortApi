@@ -89,6 +89,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthRepository.cs" />
+    <Compile Include="DeckRepository.cs" />
+    <Compile Include="Interfaces\IDeckRepository.cs" />
     <Compile Include="Interfaces\IAuthRepository.cs" />
     <Compile Include="Models\AuthResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

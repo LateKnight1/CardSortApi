@@ -42,6 +42,8 @@ namespace CardSortApi.DependencyResolution {
             For<IApplicationConfiguration>().Use<ApplicationConfiguration>();
             For<IAccountService>().Add<AccountService>();
             For<IEmailService>().Use<EmailService>();
+            For<IDeckService>().Use<DeckService>();
+            For<IDeckRepository>().Use<DeckRepository>();
         }
 
         #endregion

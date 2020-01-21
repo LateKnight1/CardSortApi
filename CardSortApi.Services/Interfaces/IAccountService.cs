@@ -12,5 +12,6 @@ namespace CardSortApi.Services.Interfaces
 		Task<RequestResponse<bool>> ResendEmail(string username);
 		Task<RequestResponse<AuthResponse>> Login(string username, string password);
 		Task<RequestResponse<AuthResponse>> VerifyEmail(string username, string token);
+		Task<RequestResponse<AuthResponse>> UpdateAccount(string userId, string name, string email);
 	}
 }

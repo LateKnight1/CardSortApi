@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using CardSortApi.Domain.Models;
 using CardSortApi.Repositories;
@@ -74,6 +75,22 @@ namespace CardSortApi.Services
 			{
 				Succeeded = true,
 				ResponseBody = await _authService.GetAuthentication(user.Username, user.Password)
+			};
+		}
+
+		public async Task<RequestResponse<AuthResponse>> UpdateAccount(string userId, string name, string email)
+		{
+			if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email))
+			{
+				throw new ValidationException("Name and Password are required to save");
+			}
+			var user = await _authRepository.UpdateAccount(userId, name, email);
+			var response = await _authService.GetAuthentication(user.Username, user.Password);
+
+			return new RequestResponse<AuthResponse>
+			{
+				Succeeded = true,
+				ResponseBody = response
 			};
 		}
 
