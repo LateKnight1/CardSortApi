@@ -36,6 +36,35 @@ namespace CardSortApi.Services
 			throw new AuthenticationException("An invalid credential was passed");
 		}
 
+		public async Task<CardSortIdentity> GetIdentity(string authHeaderParameter)
+		{
+			var token = ParseJwt(authHeaderParameter);
+			var claims = token.Claims;
+			var claimsList = claims.ToList();
+			var userId = claimsList.FirstOrDefault(x => x.Type == "nameid")?.Value;
+			var username = claimsList.FirstOrDefault(x => x.Type == "username")?.Value;
+			var user = await _authRepository.GetUser(userId);
+
+			if (username != user.Username) return null;
+			var identity = new CardSortIdentity(user.Name, "JWT", true, user.UserId.ToString(), user.Username);
+			return identity;
+		}
+
+		public GenericPrincipal CreatePrincipal(CardSortIdentity cardSortIdentity)
+		{
+			var roles = new List<string>();
+
+			if (string.IsNullOrEmpty(cardSortIdentity.Username))
+				return new GenericPrincipal(cardSortIdentity, roles.ToArray());
+			roles.Add("user");
+			if (cardSortIdentity.Username.Equals("lateknight1"))
+			{
+				roles.Add("admin");
+			}
+
+			return new GenericPrincipal(cardSortIdentity, roles.ToArray());
+		}
+
 		private async Task<AuthResponse> GenerateJwt(User user)
 		{
 			var claims = await CreateClaims(user);
@@ -61,37 +90,6 @@ namespace CardSortApi.Services
 			claims.AddClaim(new Claim("username", user.Username));
 
 			return Task.FromResult(claims);
-		}
-
-		public async Task<CardSortIdentity> GetIdentity(string authHeaderParameter)
-		{
-			var token = ParseJwt(authHeaderParameter);
-			var claims = token.Claims;
-			var claimsList = claims.ToList();
-			var userId = claimsList.FirstOrDefault(x => x.Type == "nameid")?.Value;
-			var username = claimsList.FirstOrDefault(x => x.Type == "username")?.Value;
-			var user = await _authRepository.GetUser(userId);
-
-			if (username != user.Username) return null;
-			var identity = new CardSortIdentity(user.Name, "JWT", true, user.UserId.ToString(), user.Username);
-			return identity;
-		}
-
-		public GenericPrincipal CreatePrincipal(CardSortIdentity cardSortIdentity)
-		{
-			var roles = new List<string>();
-
-			if (cardSortIdentity.Username.Equals("lateknight1"))
-			{
-				roles.Add("admin");
-			}
-
-			if (!string.IsNullOrEmpty(cardSortIdentity.Username))
-			{
-				roles.Add("user");
-			}
-
-			return new GenericPrincipal(cardSortIdentity, roles.ToArray());
 		}
 
 		private JwtSecurityToken ParseJwt(string authHeaderParameter)

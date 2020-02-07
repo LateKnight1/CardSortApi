@@ -9,15 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Tests", "CardSo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Domain", "CardSortApi.Domain\CardSortApi.Domain.csproj", "{FE9E088B-6119-43CC-A672-190CC2D615D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Domain.Tests", "CardSortApi.Domain.Tests\CardSortApi.Domain.Tests.csproj", "{49810835-2548-4515-971A-44B5DD7BC802}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Services", "CardSortApi.Services\CardSortApi.Services.csproj", "{1D81DF1C-772D-4152-8AE5-593EE91375D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Services.Tests", "CardSortApi.Services.Tests\CardSortApi.Services.Tests.csproj", "{5FA9ECCF-2219-4BD3-8E14-AC067AC1100D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Repositories", "CardSortApi.Repositories\CardSortApi.Repositories.csproj", "{779B0334-A4E5-47C2-B0B9-92F6A0A538D6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardSortApi.Repositories.Tests", "CardSortApi.Repositories.Tests\CardSortApi.Repositories.Tests.csproj", "{F754FA6A-04EB-460E-ACDD-2ABA6889FD23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +33,6 @@ Global
 		{FE9E088B-6119-43CC-A672-190CC2D615D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE9E088B-6119-43CC-A672-190CC2D615D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE9E088B-6119-43CC-A672-190CC2D615D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49810835-2548-4515-971A-44B5DD7BC802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49810835-2548-4515-971A-44B5DD7BC802}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49810835-2548-4515-971A-44B5DD7BC802}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49810835-2548-4515-971A-44B5DD7BC802}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1D81DF1C-772D-4152-8AE5-593EE91375D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1D81DF1C-772D-4152-8AE5-593EE91375D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D81DF1C-772D-4152-8AE5-593EE91375D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,10 +45,6 @@ Global
 		{779B0334-A4E5-47C2-B0B9-92F6A0A538D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{779B0334-A4E5-47C2-B0B9-92F6A0A538D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{779B0334-A4E5-47C2-B0B9-92F6A0A538D6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F754FA6A-04EB-460E-ACDD-2ABA6889FD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F754FA6A-04EB-460E-ACDD-2ABA6889FD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F754FA6A-04EB-460E-ACDD-2ABA6889FD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F754FA6A-04EB-460E-ACDD-2ABA6889FD23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

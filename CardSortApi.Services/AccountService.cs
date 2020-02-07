@@ -1,7 +1,7 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using CardSortApi.Domain.Models;
+using CardSortApi.Domain.Exceptions;
 using CardSortApi.Repositories;
 using CardSortApi.Repositories.Interfaces;
 using CardSortApi.Repositories.Models;
@@ -34,6 +34,10 @@ namespace CardSortApi.Services
 
 		public async Task<RequestResponse<AuthResponse>> CreateAccount(string name, string email, string username, string password)
 		{
+			if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+			{
+				throw new ValidationException("Name, email, username, and password are required");
+			}
 			var user = GenerateUser(name, email, username, password);
 			_emailService.SendWelcomeEmail(user);
 			await _authRepository.CreateAccount(user);

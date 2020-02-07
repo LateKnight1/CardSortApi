@@ -86,6 +86,7 @@
     <Compile Include="Dto\UpdateRequest.cs" />
     <Compile Include="Dto\VerificationRequest.cs" />
     <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Exceptions\ValidationException.cs" />
     <Compile Include="Identity\CardSortIdentity.cs" />
     <Compile Include="Models\RequestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
